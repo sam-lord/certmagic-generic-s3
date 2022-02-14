@@ -9,7 +9,7 @@ import (
 	"log"
 	"time"
 
-	"github.com/caddyserver/certmagic"
+	"github.com/sam-lord/certmagic"
 	minio "github.com/minio/minio-go/v7"
 	"github.com/minio/minio-go/v7/pkg/credentials"
 )
