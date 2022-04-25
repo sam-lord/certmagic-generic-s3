@@ -3,8 +3,10 @@ module github.com/sam-lord/certmagic-generic-s3
 go 1.14
 
 require (
+	github.com/caddyserver/certmagic v0.16.1
 	github.com/minio/minio-go/v7 v7.0.4
-	github.com/sam-lord/certmagic v0.15.4-0.20220214094837-c7811aab87ad
-	github.com/thomersch/certmagic-generic-s3 v1.0.0
-	golang.org/x/crypto v0.0.0-20210513164829-c07d793c2f9a
+	github.com/pkg/errors v0.9.1 // indirect
+	github.com/smartystreets/goconvey v1.6.4 // indirect
+	golang.org/x/crypto v0.0.0-20220210151621-f4118a5b28e2
+	golang.org/x/lint v0.0.0-20200302205851-738671d3881b // indirect
 )
