@@ -136,7 +136,7 @@ func (gs *S3Storage) Store(ctx context.Context, key string, value []byte) error 
 func (gs *S3Storage) Load(ctx context.Context, key string) ([]byte, error) {
 	r, err := gs.s3client.GetObject(ctx, gs.bucket, gs.objName(key), minio.GetObjectOptions{})
 	if err != nil {
-		return nil, err
+		return nil, fs.ErrNotExist
 	}
 	defer r.Close()
 	buf, err := ioutil.ReadAll(gs.iowrap.WrapReader(r))
