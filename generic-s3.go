@@ -69,7 +69,7 @@ func NewS3Storage(opts S3Opts) (*S3Storage, error) {
 		return nil, err
 	}
 	if !ok {
-		return nil, fmt.Errorf("S3 bucket %s does not exist", opts.Bucket)
+		return nil, fmt.Errorf("s3 bucket %s does not exist", opts.Bucket)
 	}
 	return gs3, nil
 }
@@ -134,9 +134,13 @@ func (gs *S3Storage) Store(ctx context.Context, key string, value []byte) error 
 }
 
 func (gs *S3Storage) Load(ctx context.Context, key string) ([]byte, error) {
+	if !gs.Exists(ctx, key) {
+		return nil, fs.ErrNotExist
+	}
+
 	r, err := gs.s3client.GetObject(ctx, gs.bucket, gs.objName(key), minio.GetObjectOptions{})
 	if err != nil {
-		return nil, fs.ErrNotExist
+		return nil, err
 	}
 	defer r.Close()
 	buf, err := ioutil.ReadAll(gs.iowrap.WrapReader(r))
