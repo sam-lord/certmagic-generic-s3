@@ -10,9 +10,9 @@ import (
 	"log"
 	"time"
 
-	"github.com/caddyserver/certmagic"
 	minio "github.com/minio/minio-go/v7"
 	"github.com/minio/minio-go/v7/pkg/credentials"
+	"github.com/sam-lord/certmagic"
 )
 
 type S3Opts struct {
