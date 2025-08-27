@@ -44,10 +44,10 @@ func TestIOWrap(t *testing.T) {
 	wr := sb.WrapReader(empty)
 
 	buf, err := ioutil.ReadAll(wr)
-	if err != nil {
-		t.Errorf("reading failed: %s", err)
+	if err == nil {
+		t.Errorf("reading should fail with empty reader, but got: %v", buf)
 	}
 	if len(buf) != 0 {
-		t.Errorf("Buffer should be empty, got: %v", buf)
+		t.Errorf("Buffer should be empty when error occurs, got: %v", buf)
 	}
 }
