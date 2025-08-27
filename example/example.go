@@ -5,7 +5,7 @@ import (
 	"log"
 	"net/http"
 
-	"github.com/sam-lord/certmagic"
+	"github.com/caddyserver/certmagic"
 	cmgs3 "github.com/sam-lord/certmagic-generic-s3"
 )
 
